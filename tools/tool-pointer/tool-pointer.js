@@ -24,6 +24,13 @@ const toolPointer = function() {
     }
   };
 
+  tool.onMouseDrag = function(event) {
+    paper.project.selectedItems.forEach(item => {
+      //TODO при первом перемещении курсор мыши относительно объекта не должен съезжать
+      item.position = event.point;
+    });
+  };
+
   tool.onKeyDown = function(event) {
     //удаляем выбранный объект
     if(event.key == 'delete') {
